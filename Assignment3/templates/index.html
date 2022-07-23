@@ -21,6 +21,8 @@
         <h1 class="denial">{{msg}}</h1>
         {% elif msg == "You have successfully given feedback. Thanks!" %}
         <h1 class="success">{{msg}}</h1>
+        {% elif msg == "You have successfully submitted a remark request. Thanks!" %}
+        <h1 class="success">{{msg}}</h1>
         {% else %}
         <h1 class="welcome">Welcome {{msg}}</h1>
         {%endif%}
