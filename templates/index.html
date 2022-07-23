@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="static/css/styles.css" />
+</head>
+
+<body>
+
+
+    <script src="static/scripts/header.js" onLoad="outputHeader('Home', '{{auth}}' )"></script>
+
+
+
+    <div class="info">
+        {% block content %}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for msg in messages %}
+        {% if msg == "You are not authorized to view that page" %}
+        <h1 class="denial">{{msg}}</h1>
+        {% elif msg == "You have successfully given feedback. Thanks!" %}
+        <h1 class="success">{{msg}}</h1>
+        {% else %}
+        <h1 class="welcome">Welcome {{msg}}</h1>
+        {%endif%}
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        {% endblock %}
+        <div id="course_desc" class="course_desc">
+            <txt class="desc_title">Course Description</txt>
+            <hr>
+            <txt>
+                A practical introduction to databases and Web app development. Databases: terminology and applications;
+                creating, querying and updating databases; the entity-relationship model for database design. Web
+                documents and applications: static and interactive
+                documents; Web servers and dynamic server-generated content; Web application development and interface
+                with databases.
+            </txt>
+
+            <ul class="nobull">
+                <li>
+                    <txt> Prerequisite: Some experience with programming in an imperative language such as Python, Java
+                        or C.
+                    </txt>
+                </li>
+                <li>
+                    <txt>Exclusion: This course may not be taken after - or concurrently with - any C- or D-level CSC
+                        course.
+                    </txt>
+                </li>
+                <li>
+                    <txt> <a href=" /static/assets/Syllabus.pdf" target="_blank">Syllabus</a>
+                    </txt>
+                </li>
+            </ul>
+
+
+        </div>
+
+
+
+
+        <div class="Instructor">
+
+            <txt id="instructor_title1" class="instructor_title">About the Instructor</txt>
+            <hr>
+            <ul class="nobull">
+                <li>
+                    <txt>Dr. Purva Gawde</txt>
+                </li>
+                <li>
+                    <txt>Email: <a href="mailto: purva.gawde@utoronto.ca" target="_blank">purva.gawde@utoronto.ca</a>
+                    </txt>
+                </li>
+
+                <li>
+                    <txt>Office: IC 484</a>
+                    </txt>
+                </li>
+
+                <li>
+                    <txt>Phone: 437-246-2192</a>
+                    </txt>
+                </li>
+
+                <li>
+                    <txt>Lectures: Lectures will be online till January 30 th, 2022. From January 31st, lectures will be
+                        in person. </a>
+                    </txt>
+                </li>
+
+                <li>
+                    <txt>Office Hours: Tuesday 10 to 11 IC 484
+                    </txt>
+                </li>
+
+                <br>
+
+            </ul>
+            <div class="feedback">
+                <txt id="feedback_title1" class="feedback_title">Anonymous Feedback</txt>
+                <hr>
+                {% if auth == 1 %}
+                <a href="/viewFeedback"> View Feedback</a>
+                {% else %}
+                <a href="/giveFeedback">Give Feedback</a>
+                {% endif %}
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+</body>
+
+
+
+<footer>
+    <script src="static/scripts/footer.js"></script>
+</footer>
+
+</html>

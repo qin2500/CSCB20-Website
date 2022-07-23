@@ -1,0 +1,115 @@
+.info {
+    box-shadow: 4px 6px 10px 1px #000000;
+    background-color: rgba(0, 0, 0, 0.3);
+    margin-right: 3%;
+    margin-left: 3%;
+    margin-top: -3%;
+    margin-bottom: 3%;
+}
+
+ul {
+    margin-bottom: 0%;
+}
+
+
+.info txt {
+    color: azure;
+    font-size: 40px;
+
+    padding-top: 1%;
+}
+
+ul.nobull {
+    list-style-type: none;
+    color: rgb(224, 238, 238);
+}
+
+.tut_res {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 1em;
+}
+
+.tut_res txt {
+    font-weight: 100;
+    font-size: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.tut_res a {
+    color: var(--blu);
+}
+
+.tut_res a:hover {
+    color: rgb(107, 184, 223);
+}
+
+
+/* CSS HEX */
+
+:root {
+    --gre: #253031ff;
+    --gra: #315659ff;
+    --blu: #2978a0ff;
+    --bro: #bcab79ff;
+    --lblu: #c6e0ffff;
+    --whi: rgb(224, 238, 238)
+}
+
+body {
+    font-size: 16px;
+    /* background:url(https://utsc.utoronto.ca/admissions/sites/utsc.utoronto.ca.admissions/files/styles/full-page-image/public/images/page/highland_hall2.jpg?itok=jVnwWyrn&c=e0a5a2589657c45dfe77bb902c616ff0) center center/contain no-repeat;  */
+    padding: 0%;
+    background-blend-mode: darken;
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("/static/assets/images/option3.jpg") center/cover no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--whi);
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0%;
+}
+
+ul.nobull {
+    list-style-type: none;
+    color: rgb(224, 238, 238);
+}
+
+a,
+a:visited {
+    color: var(--blu);
+}
+
+a:hover {
+    color: rgb(39, 110, 86);
+}
+
+@media screen and (max-width: 450px) {
+    .topnav {
+        position: absolute;
+        left: 0;
+    }
+}
+
+
+
+
+
+
+a.exit {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+a.mobile:link, a.mobile:visited, a.mobile:hover, a.mobile:active, a.mobile {
+    visibility: hidden;
+    left: 5vw;
+    text-align: left;
+    align-self: left;
+    align-content: left;
+    margin-right: 0;
+    text-decoration: none;
+    color: var(--whi);
+    position: absolute;
+}

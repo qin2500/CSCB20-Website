@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+    <link rel="stylesheet" href="static/css/sign_up.css" />
+
+</head>
+
+<body>
+
+    <script src="static/scripts/header.js" onLoad="outputHeader('Sign-up', '{{auth}}')"></script>
+
+    <div class="container">
+        <form class="bigBoi" method="POST">
+            <div class="auth" id="authForm">
+                <label for="auth">I am a </label><br>
+                <select name="auth" id="auth">
+                    <option selected="selected" value="s">Student</option>
+                    <option value="i">Instructor</option>
+                </select>
+            </div>
+            {% block content %}
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for msg in messages %}
+            <h1 class="error">{{msg}}</h1>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            {% endblock %}
+
+            <div class="studentSignUp" id="studentSignUp">
+                <h1 class="from_title">Student sign-up</h1>
+                <div class="id">
+                    <input type="number" class="form_input" name="id" autofocus placeholder="Student ID">
+                </div>
+                <div class="username">
+                    <input type="text" class="form_input" name="username" autofocus placeholder="Username">
+                </div>
+                <div class="name">
+                    <input type="text" class="form_input" name="fname" autofocus placeholder="First Name">
+                    <input type="text" class="form_input" name="lname" autofocus placeholder="Last Name">
+                </div>
+
+                <div class="email">
+                    <input type="email" class="form_input" name="email" autofocus placeholder="Email">
+                </div>
+                <div class="password">
+                    <input type="password" class="form_input" name="password" autofocus placeholder="Password">
+                </div>
+                <button type="submit">Submit</button>
+                <br>
+                <div><a href="/sign_in">Already have an account? Sign in here!!</a></div>
+            </div>
+
+            <div class="intructorSignUp" id="instructorSignUp">
+                <h1 class="from_title">Instructor sign-up</h1>
+
+                <div class="username2">
+                    <input type="text" class="form_input" name="username2" autofocus placeholder="Username">
+                </div>
+                <div class="name2">
+                    <input type="text" class="form_input" name="fname2" autofocus placeholder="First Name">
+                    <input type="text" class="form_input" name="lname2" autofocus placeholder="Last Name">
+                </div>
+
+                <div class="email2">
+                    <input type="email2" class="form_input" name="email2" autofocus placeholder="Email">
+                </div>
+                <div class="password2">
+                    <input type="password" class="form_input" name="password2" autofocus placeholder="Password">
+                </div>
+
+
+
+                <button type="submit">Submit</button>
+                <br>
+                <div><a href="/sign_in">Already have an account? Sign in here!!</a></div>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="static/scripts/sign_up.js"></script>
+
+    <br>
+    <br>
+</body>
+
+<footer>
+    <script src="static/scripts/footer.js"></script>
+</footer>
+
+</html>

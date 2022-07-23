@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="static/css/my_grades.css">
+
+</head>
+
+<body>
+
+
+    <script src="static/scripts/header.js" onLoad="outputHeader('{{user.first_name}} - Grades', '{{auth}}')"></script>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+
+    <script src="static/scripts/my_grades.js"
+        onload="output_grades('{{ user.username }}', '{{ user.first_name }}', '{{ user.tutorial_attendance_grade }}', '{{user.a1_grade}}', '{{user.a2_grade}}', '{{user.a3_grade}}', '{{user.midterm_grade}}', '{{user.final_exam_grade}}', '{{user.final_grade}}')"></script>
+
+    <!-- <script src="static/scripts/my_grades.js" onload="output_grades('ohohohoh')"></script> -->
+    <!-- <script src="static/scripts/my_grades.js" onload="outputHeader('About')"></script>
+    <script src="static/scripts/header.js" onLoad="outputHeader('About')"></script> -->
+
+    <br>
+    <br>
+
+    <div class="container">
+        <form class="regradeListForm" id="regradeListForm" method="POST">
+            <h1>Regrade Request</h1>
+
+            <div class="item_list">
+                <label for="item_list">Choose an item to ask for a regrade on</label>
+                <select class="items" name="item_list" id="item_list">
+                    <option value="Tutorial_Attendance">Tutorial Attendance</option>
+                    <option value="A1">Assignment 1</option>
+                    <option value="A2">Assignment 2</option>
+                    <option value="A3">Assignment 3</option>
+                    <option value="Midterm">Midterm</option>
+                    <option value="Final Exam">Final Exam</option>
+                    <option value="Final">Final Grade</option>
+                    <option selected="selected" value="option">Item</option>
+                </select>
+            </div>
+
+
+
+            <div class="feedback_prompt" id=feedback_prompt_1>
+                <label class="ftext" for="feedback">Why do you believe this item deserves a regrade?</label>
+                <div class="ftext">
+                    <textarea rows="10" cols="60" id="content" required name="content1"></textarea>
+                </div>
+            </div>
+
+            <input type="submit" value="Submit">
+
+        </form>
+    </div>
+
+    <br>
+    <br>
+
+</body>
+
+<footer>
+    <script src="static/scripts/footer.js"></script>
+</footer>
+
+</html>

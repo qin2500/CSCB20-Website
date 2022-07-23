@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/css/edit_grades.css">
+</head>
+
+<body>
+
+    <script src="static/scripts/header.js" onLoad="outputHeader('Grades', '{{auth}}')"></script>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <form class="studentListForm" id="studentListForm" method="POST">
+        <!--  <div class="student_list">
+            <label for="student_list">Pick a student </label>
+            <select name="student_list" id="student_list" onchange='this.form.submit()'>
+                {% for item in studentList %}
+                <option value="{{item.username}}">{{item.username}} - {{item.id}}</option>
+                {% endfor %}
+                <option selected="selected" value="student">Student</option>
+
+            </select>
+        </div> -->
+
+
+
+        <!--In case we add the change individual grade option-->
+        <!-- 
+        <div class="change_grade">
+            <label for="item_list">Pick a grade</label>
+            <select name="student_list" id="student_list" onchange='this.form.submit()'>
+                {% for item in studentList %}
+                <option value="{{item.username}}">{{item.username}} - {{item.id}}</option>
+                {% endfor %}
+                <option selected="selected" value="s">Student</option>
+
+            </select>
+        </div> -->
+
+        <!-- <script src="static/scripts/my_grades.js"
+        onload="output_grades('{{ student.username }}', '{{ student.first_name }}', '{{ student.tutorial_attendance_grade }}', '{{student.a1_grade}}', '{{student.a2_grade}}', '{{student.a3_grade}}', '{{student.midterm_grade}}', '{{student.final_exam_grade}}', '{{student.final_grade}}')"></script> -->
+        <!-- <script src="static/scripts/my_grades.js" onload="output_grades('ohohohoh')"></script> -->
+        <!-- <script src="static/scripts/my_grades.js" onload="outputHeader('About')"></script>
+        <script src="static/scripts/header.js" onLoad="outputHeader('About')"></script> -->
+
+        <link rel="stylesheet" href="static/css/edit_grades.css">
+
+        {% block content %}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for msg in messages %}
+        <h1 class="error">{{msg}}</h1>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        {% endblock %}
+        <div class="allGrades">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>ID</th>
+                    <th>Tutorial Attendance</th>
+                    <th>Assignment 1</th>
+                    <th>Assignment 2</th>
+                    <th>Assignment 3</th>
+                    <th>Midterm</th>
+                    <th>Final Exam</th>
+                    <th>Final</th>
+                </tr>
+                {% for item in studentList %}
+                <tr>
+                    <td>{{item.username}}</td>
+                    <td>{{item.id}}</td>
+                    <input type="hidden" name="id" value="{{item.id}}">
+                    <td>
+                        <input type="number" step="0.01" min="0" max="100"
+                            name="tutorial_attendance_grade - {{item.id}}"
+                            value="{{item.tutorial_attendance_grade}}"></input>
+                    </td>
+                    <td>
+                        <input type="number" step="0.01" min="0" max="100" name="a1_grade - {{item.id}}"
+                            value="{{item.a1_grade}}"></input>
+                    </td>
+                    <td>
+                        <input type="number" step="0.01" min="0" max="100" name="a2_grade - {{item.id}}"
+                            value="{{item.a2_grade}}"></input>
+                    </td>
+                    <td>
+                        <input type="number" step="0.01" min="0" max="100" name="a3_grade - {{item.id}}"
+                            value="{{item.a3_grade}}"></input>
+                    </td>
+                    <td>
+                        <input type="number" step="0.01" min="0" max="100" name="midterm_grade - {{item.id}}"
+                            value="{{item.midterm_grade}}"></input>
+                    </td>
+                    <td>
+                        <input type="number" step="0.01" min="0" max="100" name="final_exam_grade - {{item.id}}"
+                            value="{{item.final_exam_grade}}"></input>
+                    </td>
+                    <td>
+                        <input type="number" step="0.01" min="0" max="100" name="final_grade - {{item.id}}"
+                            value="{{item.final_grade}}"></input>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <input type="submit" onclick="return confirm('Are you ready to confirm your changes?')"></input>
+    </form>
+
+
+
+
+</body>
+
+<footer>
+    <script src="static/scripts/footer.js"></script>
+</footer>
+
+</html>

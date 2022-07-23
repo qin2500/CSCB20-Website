@@ -1,0 +1,19 @@
+- CSS -
+Login page - Matthew - Done - Needs mobile size adjustments
+Sign up page - Matthew - Done - Needs mobile size adjustments
+My grades - Matthew
+View feedback
+Give feedback - Matthew - Done
+Edit grades (it broke somehow after i fixed the functionality lol)
+
+- Functionality -
+Add link for mygrades page           ] - Profile menu - Anthony
+Add remark requests to mygrades page ]
+Add more links to topnav - Anthony
+View remark requests - Klein
+Allow instructor to view and edit all grades at once - Anthony + Klein - Done
+
+- Miscellaneous -
+Change name of login.html to sign_in.html - Klein - Done
+Be consistent with camel case vs. underscores
+Report - Ethan

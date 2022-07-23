@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="static/css/calendar_styles.css" />
+</head>
+
+<body>
+
+
+    <script src="static/scripts/header.js" onLoad="outputHeader('Calendar', '{{auth}}' )"></script>
+    <div class="info">
+        <txt id="calendar_title1" class="calendar_title">Calendar</txt>
+        <div class="responsive-iframe-container big-container">
+            <iframe
+                src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FToronto&src=ZXRoYW56aGFuZzU3QGdtYWlsLmNvbQ&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=aTZsaGtxamFjM2MwdmJzN2NjcTRkbzZpN29AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZW1oY2lsbjNhb3JidXZ0OXAydDgzajVtMWNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%237986CB&color=%2333B679&color=%23009688&color=%23A79B8E"
+                style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+        <div class="responsive-iframe-container small-container">
+            <iframe
+                src="https://calendar.google.com/calendar/embed?height=600&mode=AGENDA&wkst=1&bgcolor=%23ffffff&ctz=America%2FToronto&src=ZXRoYW56aGFuZzU3QGdtYWlsLmNvbQ&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=aTZsaGtxamFjM2MwdmJzN2NjcTRkbzZpN29AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZW1oY2lsbjNhb3JidXZ0OXAydDgzajVtMWNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%237986CB&color=%2333B679&color=%23009688&color=%23A79B8E"
+                style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </div>
+</body>
+
+<footer>
+    <script src="static/scripts/footer.js"></script>
+</footer>
+
+</html>

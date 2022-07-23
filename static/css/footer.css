@@ -1,0 +1,30 @@
+footer {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: black;
+    margin-top: auto;
+
+}
+
+.designers {
+    flex: 1;
+    margin-top: 15px;
+    margin-left: 100px;
+    padding: 10px;
+}
+
+.contact-info {
+    flex: 1;
+    margin-top: 5px;
+    padding: 10px;
+}
+
+.faculty {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+.cs {
+    height: 100px;
+}
