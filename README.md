@@ -6,8 +6,8 @@ This website was created by Anthony Qin, Klein Harrigan, and Ethan Zhang to host
 **Technologies used:** PythonFlask, SQLite, SQLAlchemy, Heroku
 
 **Test Accounts:**
-  Student: \n
-      Username: passwordispassword123
+ Student: 
+ Username: passwordispassword123
       Password:
   Professor:
       Username:
