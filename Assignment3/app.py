@@ -441,6 +441,10 @@ def hello_world():
     if (not session.get('username') or (session.get('auth') > 1)):
         return render_template("sign_in.html", auth=2)
 
+    if not User.query.filter(
+            User.username == session['username']).first():
+        return render_template("sign_in.html", auth=2)
+
     if session['auth'] == 1:
         ins = Instructor.query.filter(
             Instructor.username == session['username']).first()
