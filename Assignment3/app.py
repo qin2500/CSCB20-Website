@@ -374,9 +374,9 @@ def sign_in():
     print("we are on sign in page")
     session.pop('_flashes', None)
     if session.get('username'):
-        if not User.query.filter(User.username == session['username']).first == None:
+        if not User.query.filter(User.username == session['username']).first() == None:
             session['auth'] = 0
-        elif not Instructor.query.filter(Instructor.username == session['username']).first == None:
+        elif not Instructor.query.filter(Instructor.username == session['username']).first() == None:
             session['auth'] = 1
         else:
             return render_template("sign_in.html", auth=2)
