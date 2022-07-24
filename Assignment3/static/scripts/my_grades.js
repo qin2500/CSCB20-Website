@@ -18,15 +18,6 @@ function output_grades(username, first_name, tut_att, a1_gr, a2_gr, a3_gr, midt_
   <link rel="stylesheet" href="static/css/my_grades.css">\
   </head>\
   <div class="container">\
-  {% block content %}\
-            {% with messages = get_flashed_messages() %}\
-            {% if messages %}\
-            {% for msg in messages %}\
-            <h1 class="error">{{msg}}</h1>\
-            {% endfor %}\
-            {% endif %}\
-            {% endwith %}\
-            {% endblock %}\
     <h1>Grades for '+ first_name + '</h>\
     <table>\
         <tr>\

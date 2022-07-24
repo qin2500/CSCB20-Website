@@ -14,11 +14,23 @@
 <body>
 
 
+
     <script src="static/scripts/header.js" onLoad="outputHeader('{{user.first_name}} - Grades', '{{auth}}')"></script>
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+    {% block content %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="container">
+        {% for msg in messages %}
+        <h1 class="error">{{msg}}</h1>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+    {% endblock %}
 
 
     <script src="static/scripts/my_grades.js"
