@@ -109,7 +109,7 @@ def my_grades():
             return redirect(url_for('hello_world'))
         else:
             flash("Please select an item")
-            return redirect(url_for('giveFeedback'))
+            return redirect(url_for('my_grades'))
 
     return render_template("my_grades.html", user=User.query.filter(User.username == session['username']).first(), auth=session['auth'])
 
@@ -120,7 +120,7 @@ def viewFeedback():
         return redirect(url_for('sign_in'))
     if not Instructor.query.filter(Instructor.id == session['id']).first():
         flash("You are not authorized to view that page")
-        return render_template("index.html", auth=session['auth'])
+        return redirect(url_for("hello_world"))
     if request.method == 'POST':
         if (request.form.get("feedback_list") != "feedback"):
             feedback = Feedback.query.filter(
@@ -134,10 +134,10 @@ def viewFeedback():
 @app.route("/viewRegrade", methods=['GET', 'POST'])
 def viewRegrade():
     if not session.get('username'):
-        return render_template("sign_in.html", showError="TRUE", auth=2)
+        return redirect(url_for("sign_in"))
     if not Instructor.query.filter(Instructor.id == session['id']).first():
         flash("You are not authorized to view that page")
-        return render_template("index.html", auth=session['auth'])
+        return redirect(url_for("hello_world"))
     if request.method == 'POST':
         if (request.form.get("feedback_list") != "feedback"):
             feedback = RemarkRequest.query.filter(
@@ -371,6 +371,7 @@ def signUp():
 
 @ app.route("/sign_in", methods=['GET', 'POST'])
 def sign_in():
+    print("we are on sign in page")
     session.pop('_flashes', None)
     if session.get('username'):
         if User.query.filter(User.username == session['username']):
@@ -383,9 +384,10 @@ def sign_in():
         input_usr = request.form.get("username")
         input_pword = request.form.get("password")
         auth = request.form.get("auth")
+        print(input_usr)
 
         if auth == "s":
-
+            print("trying student")
             usr_attempt = User.query.filter(
                 User.username == input_usr).first()
 
@@ -402,8 +404,9 @@ def sign_in():
                 return redirect(url_for("hello_world"))
 
             else:
+                print("wrong password")
                 flash("Invalid combination of Username and Password")
-                return (redirect(url_for('sign_in')))
+                return render_template("sign_in.html", showError="TRUE", auth=2)
         else:
             usr_attempt = Instructor.query.filter(
                 Instructor.username == input_usr).first()
@@ -439,11 +442,12 @@ def hello_world():
             session['auth'] = 1
 
     if (not session.get('username') or (session.get('auth') > 1)):
-        return render_template("sign_in.html", auth=2)
+        return redirect(url_for('sign_in'))
 
     if not User.query.filter(
             User.username == session['username']).first():
-        return render_template("sign_in.html", auth=2)
+        print("how are we here??")
+        return redirect(url_for('sign_in'))
 
     if session['auth'] == 1:
         ins = Instructor.query.filter(
