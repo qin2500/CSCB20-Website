@@ -376,8 +376,10 @@ def sign_in():
     if session.get('username'):
         if User.query.filter(User.username == session['username']):
             session['auth'] = 0
-        else:
+        elif Instructor.query.filter(Instructor.username == session['username']):
             session['auth'] = 1
+        else:
+            return render_template("sign_in.html", auth=2)
         flash(session['username'])
         return redirect(url_for('hello_world'))
     if request.method == 'POST':
@@ -433,6 +435,7 @@ def sign_in():
 
 @ app.route("/")
 def hello_world():
+    print("we are on home page")
     print(session.get('username'))
     print(session.get('auth'))
     if (session.get('username') and not session.get('auth')):
