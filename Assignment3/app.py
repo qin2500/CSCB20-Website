@@ -379,6 +379,7 @@ def sign_in():
         elif not Instructor.query.filter(Instructor.username == session['username']).first() == None:
             session['auth'] = 1
         else:
+            session['auth'] = 2
             return render_template("sign_in.html", auth=2)
         flash(session['username'])
         print(session['username'])
@@ -452,7 +453,7 @@ def hello_world():
     if not User.query.filter(
             User.username == session['username']).first():
         print("how are we here??")
-        return redirect(url_for('sign_in'))
+        return redirect(url_for('logout'))
 
     if session['auth'] == 1:
         ins = Instructor.query.filter(
