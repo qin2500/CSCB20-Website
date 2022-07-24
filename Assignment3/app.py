@@ -374,13 +374,15 @@ def sign_in():
     print("we are on sign in page")
     session.pop('_flashes', None)
     if session.get('username'):
-        if User.query.filter(User.username == session['username']):
+        if not User.query.filter(User.username == session['username']).first == None:
             session['auth'] = 0
-        elif Instructor.query.filter(Instructor.username == session['username']):
+        elif not Instructor.query.filter(Instructor.username == session['username']).first == None:
             session['auth'] = 1
         else:
             return render_template("sign_in.html", auth=2)
         flash(session['username'])
+        print(session['username'])
+        print("redirecting to home page")
         return redirect(url_for('hello_world'))
     if request.method == 'POST':
         input_usr = request.form.get("username")
